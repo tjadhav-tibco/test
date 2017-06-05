@@ -1,0 +1,1003 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "AllElementsSwagger",
+    "description": "this is a sample swagger definition.",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "name": "API Support",
+      "url": "http://www.swagger.io/support",
+      "email": "support@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.0"
+  },
+  "host": "api.tibcocdc.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/folders/{folder_id}": {
+      "get": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "get a folder info by folder id",
+        "description": "get a folder info by folder id",
+        "externalDocs": {
+          "description": "get a folder info by folder id",
+          "url": "https://box-content.readme.io/#folder-object"
+        },
+        "operationId": "getFolderById",
+        "consumes": [
+          "application/json",
+          "application/vnd.github.v3.text+json"
+        ],
+        "produces": [
+          "application/json",
+          "application/vnd.github.v3.text+json"
+        ],
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "description": "path parameter of folder id",
+            "required": true,
+            "type": "string",
+            "collectionFormat": "csv",
+            "default": "12345678",
+            "maxLength": 8,
+            "minLength": 8,
+            "pattern": "\\d{8}",
+            "multipleOf": 1
+          },
+          {
+            "name": "paramHeader",
+            "in": "header",
+            "description": "header param",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "fields query parameter of all apis",
+            "required": false,
+            "type": "string",
+            "default": "id",
+            "allowEmptyValue": false
+          },
+          {
+            "name": "paramInteger",
+            "in": "query",
+            "description": "integer param",
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+          },
+          {
+            "name": "paramLong",
+            "in": "query",
+            "description": "long param",
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+          },
+          {
+            "name": "paramFloat",
+            "in": "query",
+            "description": "float param",
+            "required": true,
+            "type": "number",
+            "format": "float"
+          },
+          {
+            "name": "paramDouble",
+            "in": "query",
+            "description": "double param",
+            "required": true,
+            "type": "number",
+            "format": "double"
+          },
+          {
+            "name": "paramString",
+            "in": "query",
+            "description": "string param",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "paramByte",
+            "in": "query",
+            "description": "byte param",
+            "required": true,
+            "type": "string",
+            "format": "byte"
+          },
+          {
+            "name": "paramBoolean",
+            "in": "query",
+            "description": "boolean param",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "name": "paramDate",
+            "in": "query",
+            "description": "date param",
+            "required": true,
+            "type": "string",
+            "format": "date"
+          },
+          {
+            "name": "paramDateTime",
+            "in": "query",
+            "description": "date time param",
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+          },
+          {
+            "name": "paramPassword",
+            "in": "query",
+            "description": "password param",
+            "required": true,
+            "type": "string",
+            "format": "password"
+          },
+          {
+            "name": "paramArray",
+            "in": "query",
+            "description": "array param",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "enum": [
+              "array1",
+              "array2",
+              "array3"
+            ],
+            "collectionFormat": "multi"
+          },
+          {
+            "name": "paramArrayInArray",
+            "in": "query",
+            "description": "array param",
+            "required": true,
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "collectionFormat": "multi"
+          }
+        ],
+        "responses": {
+          "100": {
+            "description": "Unexpected info",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "enum": [
+                "info1",
+                "info2",
+                "info3"
+              ]
+            }
+          },
+          "200": {
+            "description": "get the folder info successfully.",
+            "headers": {
+              "X-Rate-Limit-Limit": {
+                "description": "rate limit",
+                "type": "integer",
+                "format": "int32",
+                "default": 1000,
+                "maximum": 1000,
+                "exclusiveMaximum": false,
+                "collectionFormat": "csv"
+              }
+            },
+            "schema": {
+              "type": "object",
+              "properties": {
+                "folder_id": {
+                  "type": "integer"
+                },
+                "create_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "size": {
+                  "type": "string"
+                }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "folder_id": 123456,
+                "create_at": "2015-06-11T14:36:30-08:00",
+                "size": "10KB"
+              }
+            }
+          },
+          "300": {
+            "description": "URL redirection",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "404": {
+            "description": "file not found.",
+            "schema": {
+              "type": "string",
+              "default": "file not found."
+            }
+          },
+          "500": {
+            "description": "Server error",
+            "schema": {
+              "type": "string"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "string",
+              "default": "Unexpected error"
+            }
+          }
+        },
+        "schemes": [
+          "https",
+          "http"
+        ],
+        "deprecated": false,
+        "security": [
+          {
+            "Oauth2": [
+              "read"
+            ]
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "update a folder info by folder id",
+        "description": "update a folder info by folder id",
+        "externalDocs": {
+          "description": "update a folder info by folder id",
+          "url": "https://box-content.readme.io/#update-information-about-a-folder"
+        },
+        "operationId": "updateFolderById",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "folder_id",
+            "in": "path",
+            "description": "path parameter of folder id",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "File you want to upload",
+            "type": "file",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "file not found.",
+            "schema": {
+              "type": "string",
+              "default": "file not found."
+            },
+            "headers": {
+              "X-Rate-Limit-Limit": {
+                "description": "rate limit",
+                "type": "number",
+                "format": "int32",
+                "default": 1000,
+                "maximum": 1000,
+                "exclusiveMaximum": false
+              }
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "string",
+              "default": "Unexpected error"
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Folder"
+        ],
+        "summary": "delete a folder.",
+        "description": "delete a new folder by id.",
+        "externalDocs": {
+          "description": "delete a new folder.",
+          "url": "https://box-content.readme.io/#delete-a-folder"
+        },
+        "operationId": "deleteFolder",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "common header parameter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "fields query parameter of all apis",
+            "required": false,
+            "type": "string",
+            "default": "id",
+            "allowEmptyValue": false
+          },
+          {
+            "name": "folder_id",
+            "in": "path",
+            "description": "path parameter of folder id",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "recursive",
+            "in": "query",
+            "description": "Whether to delete this folder if it has items inside of it.",
+            "type": "boolean",
+            "required": false
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "file not found.",
+            "schema": {
+              "type": "string",
+              "default": "file not found."
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "string",
+              "default": "Unexpected error"
+            }
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "folder_id",
+          "in": "path",
+          "description": "path parameter of folder id",
+          "required": true,
+          "type": "integer",
+          "format": "int32",
+          "items": {
+            "type": "integer",
+            "default": 123,
+            "minimum": 1,
+            "maximum": 999999999
+          }
+        }
+      ]
+    },
+    "/folders": {
+      "post": {
+        "tags": [
+          "Folder"
+        ],
+        "description": "No summary element",
+        "externalDocs": {
+          "description": "create a new folder.",
+          "url": "https://box-content.readme.io/#create-a-new-folder"
+        },
+        "operationId": "createFolder",
+        "consumes": [
+          "application/json",
+          "application/xml",
+          "text/plain"
+        ],
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/plain"
+        ],
+        "parameters": [
+          {
+            "name": "requestBody",
+            "in": "body",
+            "description": "body parameter",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "title": "body of creating folder",
+              "description": "body parameter of creating folder",
+              "default": {
+                "name": "new",
+                "parent": {
+                  "id": "0"
+                }
+              },
+              "required": [
+                "name",
+                "parent"
+              ],
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "parent": {
+                  "$ref": "#/definitions/parent"
+                }
+              },
+              "readOnly": false,
+              "externalDocs": {
+                "description": "create a new folder.",
+                "url": "https://box-content.readme.io/#create-a-new-folder"
+              },
+              "example": {
+                "name": "newname.jpg",
+                "parent": {
+                  "id": "0"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get the folder info successfully.",
+            "headers": {
+              "X-Rate-Limit-Limit": {
+                "description": "rate limit",
+                "type": "number",
+                "format": "int32",
+                "default": 1000,
+                "maximum": 1000,
+                "exclusiveMaximum": false
+              }
+            }
+          },
+          "404": {
+            "description": "file not found.",
+            "schema": {
+              "type": "string",
+              "default": "file not found."
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "integer"
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "",
+        "description": "No summary",
+        "operationId": "noTags",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "If-Match",
+            "in": "header",
+            "description": "common header parameter",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "fields query parameter of all apis",
+            "required": false,
+            "type": "string",
+            "default": "id",
+            "allowEmptyValue": false
+          },
+          {
+            "name": "recursive",
+            "in": "query",
+            "description": "Whether to delete this folder if it has items inside of it.",
+            "type": "boolean",
+            "required": false
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "headers": {
+              "X-Rate-Limit-Limit": {
+                "description": "rate limit",
+                "type": "number",
+                "format": "int32",
+                "default": 1000,
+                "maximum": 1000,
+                "exclusiveMaximum": false
+              }
+            }
+          },
+          "404": {
+            "description": "file not found.",
+            "schema": {
+              "type": "string",
+              "default": "file not found."
+            }
+          }
+        }
+      }
+    },
+    "/options": {
+      "options": {
+        "tags": [
+          "Options"
+        ],
+        "summary": "To get real-time notification of activity in a Box account, use the long poll feature of the /events API.",
+        "description": "To get real-time notification of activity in a Box account, use the long poll feature of the /events API. ",
+        "externalDocs": {
+          "description": "To get real-time notification of activity in a Box account, use the long poll feature of the /events API. ",
+          "url": "https://box-content.readme.io/#long-polling"
+        },
+        "operationId": "longPolling",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "produces": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "File you want to upload",
+            "type": "file",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "404",
+            "schema": {
+              "type": "integer"
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "string",
+              "default": "Unexpected error"
+            }
+          }
+        },
+        "security": [
+          {
+            "basic": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "No description",
+        "description": "",
+        "operationId": "noTags_1",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "404": {
+            "description": "file not found.",
+            "schema": {
+              "type": "string",
+              "default": "file not found."
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "string",
+              "default": "Unexpected error"
+            }
+          }
+        }
+      }
+    },
+    "/head": {
+      "head": {
+        "tags": [
+          "Head"
+        ],
+        "summary": "This operation is useful to determine if a bucket exists and you have permission to access it.",
+        "description": "This operation is useful to determine if a bucket exists and you have permission to access it.",
+        "externalDocs": {
+          "description": "This operation is useful to determine if a bucket exists and you have permission to access it.",
+          "url": "http://docs.aws.amazon.com/AmazonS3/latest/API/RESTBucketHEAD.html"
+        },
+        "operationId": "headBucketCheck",
+        "consumes": [
+          "application/xml"
+        ],
+        "produces": [
+          "application/xml"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "string",
+              "default": "Unexpected error"
+            }
+          }
+        },
+        "security": [
+          {
+            "apikey": []
+          }
+        ]
+      },
+      "get": {
+        "summary": "No description element",
+        "operationId": "noTags_2",
+        "tags": [
+          "Head",
+          "Folder"
+        ],
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "recursive",
+            "in": "query",
+            "description": "Whether to delete this folder if it has items inside of it.",
+            "type": "boolean",
+            "required": false
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "file not found.",
+            "schema": {
+              "type": "string",
+              "default": "file not found."
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "string",
+              "default": "Unexpected error"
+            }
+          }
+        }
+      }
+    },
+    "/patch/{calendarId}": {
+      "patch": {
+        "tags": [
+          "Patch"
+        ],
+        "summary": "Updates an entry on the user's calendar list.",
+        "description": "Updates an entry on the user's calendar list.",
+        "externalDocs": {
+          "description": "Updates an entry on the user's calendar list.",
+          "url": "https://developers.google.com/google-apps/calendar/v3/reference/calendarList/patch"
+        },
+        "operationId": "patchCalendarList",
+        "consumes": [
+          "application/xml"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "calendarId",
+            "in": "path",
+            "description": "calendarId parameter",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "colorRgbFormat",
+            "in": "query",
+            "description": "Whether to use the foregroundColor and backgroundColor fields to write the calendar colors (RGB). If this feature is used, the index-based colorId field will be set to the best matching option automatically. Optional. The default is False.",
+            "type": "boolean",
+            "required": false
+          },
+          {
+            "name": "fields",
+            "in": "query",
+            "description": "fields query parameter of all apis",
+            "required": false,
+            "type": "string",
+            "default": "id",
+            "allowEmptyValue": false
+          },
+          {
+            "name": "requestBody",
+            "in": "body",
+            "description": "body parameter",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colorId": {
+                  "type": "string"
+                },
+                "backgroundColor": {
+                  "type": "string"
+                },
+                "selected": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "get the folder info successfully.",
+            "headers": {
+              "X-Rate-Limit-Limit": {
+                "description": "rate limit",
+                "type": "number",
+                "format": "float",
+                "default": 10,
+                "maximum": 100,
+                "exclusiveMaximum": true
+              }
+            },
+            "schema": {
+              "$ref": "#/definitions/success"
+            }
+          },
+          "404": {
+            "description": "file not found.",
+            "schema": {
+              "type": "string",
+              "default": "file not found."
+            }
+          },
+          "default": {
+            "description": "Unexpected error",
+            "schema": {
+              "type": "string",
+              "default": "Unexpected error"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "parent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        }
+      }
+    },
+    "shared_link": {
+      "type": "object",
+      "properties": {
+        "access": {
+          "type": "string",
+          "enum": [
+            "open",
+            "company",
+            "collaborators"
+          ]
+        },
+        "unshared_at": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "permissions": {
+          "$ref": "#/definitions/permission"
+        }
+      }
+    },
+    "permission": {
+      "type": "object",
+      "properties": {
+        "can_download": {
+          "type": "boolean"
+        },
+        "can_preview": {
+          "type": "boolean"
+        }
+      }
+    },
+    "success": {
+      "properties": {
+        "folder_id": {
+          "type": "string"
+        },
+        "createAt": {
+          "type": "string"
+        },
+        "size": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "parameters": {
+    "fieldsParam": {
+      "name": "fields",
+      "in": "query",
+      "description": "fields query parameter of all apis",
+      "required": false,
+      "type": "string",
+      "default": "id",
+      "allowEmptyValue": false
+    },
+    "ifMatchParam": {
+      "name": "If-Match",
+      "in": "header",
+      "description": "common header parameter",
+      "required": false,
+      "type": "string"
+    }
+  },
+  "responses": {
+    "100": {
+      "description": "Unexpected info",
+      "schema": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "enum": [
+          "info1",
+          "info2",
+          "info3"
+        ]
+      }
+    },
+    "200": {
+      "description": "get the folder info successfully.",
+      "headers": {
+        "X-Rate-Limit-Limit": {
+          "description": "rate limit",
+          "type": "number",
+          "format": "int32",
+          "default": 1000,
+          "maximum": 1000,
+          "exclusiveMaximum": false
+        }
+      }
+    },
+    "300": {
+      "description": "URL redirection",
+      "schema": {
+        "type": "string"
+      }
+    },
+    "404": {
+      "description": "file not found.",
+      "schema": {
+        "type": "string",
+        "default": "file not found."
+      }
+    },
+    "500": {
+      "description": "Server error",
+      "schema": {
+        "type": "string"
+      }
+    },
+    "default": {
+      "description": "Unexpected error",
+      "schema": {
+        "type": "string",
+        "default": "Unexpected error"
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Oauth2": {
+      "type": "oauth2",
+      "description": "oauth2 authentication",
+      "flow": "accessCode",
+      "authorizationUrl": "https://app.box.com/api/oauth2/authorize",
+      "tokenUrl": "https://api.box.com/oauth2/token",
+      "scopes": {
+        "write": "write permission",
+        "read": "read permission"
+      }
+    },
+    "apikey": {
+      "type": "apiKey",
+      "description": "api key suthentication",
+      "name": "apikey",
+      "in": "query"
+    },
+    "basic": {
+      "type": "basic",
+      "description": "http basci authentication"
+    }
+  },
+  "security": [
+    {
+      "Oauth2": [
+        "write",
+        "read"
+      ]
+    },
+    {
+      "apikey": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Folder",
+      "description": "Folder operations",
+      "externalDocs": {
+        "description": "Folder operations",
+        "url": "https://box-content.readme.io/#folder-object-1"
+      }
+    }
+  ],
+  "externalDocs": {
+    "description": "Box API Docs",
+    "url": "https://box-content.readme.io/#api-docs-directory"
+  }
+}

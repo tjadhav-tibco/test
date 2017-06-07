@@ -1,0 +1,5 @@
+Git Clone
+Remove karma:prod from apic/studio/client-ipaas/gulpfile.js
+Replace functions.sh and update_ui.sh
+run ./build_studio
+run ./update_ui.sh

@@ -1,0 +1,273 @@
+consumes:
+- application/json
+definitions:
+  Pet:
+    properties:
+      category:
+        $ref: '#/definitions/category'
+      id:
+        type: string
+      name:
+        type: string
+      photoUrls:
+        $ref: '#/definitions/photoUrls'
+      status:
+        type: string
+      tags:
+        $ref: '#/definitions/tags'
+    required:
+    - photoUrls
+    - name
+    - id
+    - category
+    - status
+    - tags
+    type: object
+  category:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    required:
+    - name
+    - id
+    type: object
+  photoUrls:
+    properties:
+      photoUrl:
+        type: string
+    required:
+    - photoUrl
+    type: object
+  tag:
+    properties:
+      id:
+        type: string
+      name:
+        type: string
+    required:
+    - name
+    - id
+    type: object
+  tags:
+    properties:
+      tag:
+        items:
+          $ref: '#/definitions/tag'
+        type: array
+    type: object
+info:
+  contact:
+    email: tci@tibco.com
+    name: TIBCO Cloud Integration Team
+    url: https://integration.cloud.tibco.com/docs/index.html
+  description: To get you started with the API Modeling and Mock capabilities of TIBCO
+    Cloud Integration we've created a sample API Specification for you. This sample
+    shows an API Specification for a PetStore API that can GET (retrieve), POST (create),
+    PUT (create/update), PATCH (update) and DELETE pets in the store. To make things
+    easier we've only created a small specification with a single resource '/pet/{petId}'
+  title: TIBCO Cloud Integration PetStore Sample
+  version: "1.1"
+paths:
+  /pet/{petId}:
+    delete:
+      consumes:
+      - application/json
+      description: The DELETE method in an API Specification is used to remove a resource
+        from the API. In this case it would remove the pet with the petId you specify
+        when calling the API. When you create a [Mock application](https://integration.cloud.tibco.com/docs/mockapp/creatingMockApp/index.html#APIModeler)
+        from this specification it will also show you a sample response.
+      operationId: deletepet
+      parameters:
+      - description: The ID of the pet to be removed
+        in: path
+        name: petId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: a string to be returned
+          schema:
+            type: string
+      summary: Use the DELETE method of this API specification to remove (DELETE)
+        a pet from the store
+    get:
+      consumes:
+      - application/json
+      description: The GET method in an API Specification is used to retrieve a resource
+        from the API. In this case it would retrieve a pet with the petId you specify
+        when calling the API. When the pet is found it will return the information
+        to you. When you create a [Mock application](https://integration.cloud.tibco.com/docs/mockapp/creatingMockApp/index.html#APIModeler)
+        from this specification it will also show you a sample response.
+      operationId: getpet
+      parameters:
+      - description: The ID of the pet you want to retrieve
+        in: path
+        name: petId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: a Pet to be returned
+          examples:
+            application/json:
+              category:
+                id: "1"
+                name: Domesticated pets
+              id: "6"
+              name: Dog6
+              photoUrls:
+                photoUrl: http://s5.favim.com/orig/69/adorable-cute-dog-photography-Favim.com-659715.jpg
+              status: Available
+              tags:
+                tag:
+                - id: "6"
+                  name: Dogs
+          schema:
+            $ref: '#/definitions/Pet'
+      summary: Use the GET method of this API specification to retrieve (get) a pet
+        from the store
+    patch:
+      consumes:
+      - application/json
+      description: The PATCH method in an API Specification is used to update an existing
+        resource. Based on the ID you specify when calling the API it will update
+        the pet that has the ID. It would update the pet with the information you
+        add to the body (e.g. the name or the status). When you create a [Mock application](https://integration.cloud.tibco.com/docs/mockapp/creatingMockApp/index.html#APIModeler)
+        from this specification it will also show you a sample request and a sample
+        response.
+      operationId: patchpet
+      parameters:
+      - description: The information of the pet you want to update in the store
+        in: body
+        name: Pet Information
+        required: true
+        schema:
+          $ref: '#/definitions/Pet'
+      - description: The ID of the pet
+        in: path
+        name: petId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: a Pet to be returned
+          examples:
+            application/json:
+              category:
+                id: "1"
+                name: Domesticated pets
+              id: "6"
+              name: Dog6
+              photoUrls:
+                photoUrl: http://s5.favim.com/orig/69/adorable-cute-dog-photography-Favim.com-659715.jpg
+              status: Available
+              tags:
+                tag:
+                - id: "6"
+                  name: Dogs
+          schema:
+            $ref: '#/definitions/Pet'
+      summary: Use the PATCH method of this API specification to update a pet information
+    post:
+      consumes:
+      - application/json
+      description: The POST method in an API Specification is used to create a new
+        resource. In this case it would create a new pet with the petId you specify
+        when calling the API and the information you add to the body (e.g. the name
+        or the status). When you create a [Mock application](https://integration.cloud.tibco.com/docs/mockapp/creatingMockApp/index.html#APIModeler)
+        from this specification it will also show you a sample request and a sample
+        response.
+      operationId: postpet
+      parameters:
+      - description: The information of the pet you want to create in the store
+        in: body
+        name: Pet Information
+        required: true
+        schema:
+          $ref: '#/definitions/Pet'
+      - description: The ID of the pet you want to create
+        in: path
+        name: petId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: a Pet to be returned
+          examples:
+            application/json:
+              category:
+                id: "1"
+                name: Domesticated pets
+              id: "6"
+              name: Dog6
+              photoUrls:
+                photoUrl: http://s5.favim.com/orig/69/adorable-cute-dog-photography-Favim.com-659715.jpg
+              status: Available
+              tags:
+                tag:
+                - id: "6"
+                  name: Dogs
+          schema:
+            $ref: '#/definitions/Pet'
+      summary: Use the POST method of this API specification to create a new pet
+    put:
+      consumes:
+      - application/json
+      description: The PUT method in an API Specification is used to create a new
+        resource or update an existing resource. Based on the ID you specify when
+        calling the API it would create a new pet in the store if the ID isn't in
+        use or will update the pet that has the ID if the ID already exists. It would
+        create or update the pet with the information you add to the body (e.g. the
+        name or the status). When you create a [Mock application](https://integration.cloud.tibco.com/docs/mockapp/creatingMockApp/index.html#APIModeler)
+        from this specification it will also show you a sample request and a sample
+        response.
+      operationId: putpet
+      parameters:
+      - description: The information of the pet you want to create in the store
+        in: body
+        name: Pet Information
+        required: true
+        schema:
+          $ref: '#/definitions/Pet'
+      - description: The ID of the pet
+        in: path
+        name: petId
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: a Pet to be returned
+          examples:
+            application/json:
+              category:
+                id: "1"
+                name: Domesticated pets
+              id: "6"
+              name: Dog6
+              photoUrls:
+                photoUrl: http://s5.favim.com/orig/69/adorable-cute-dog-photography-Favim.com-659715.jpg
+              status: Available
+              tags:
+                tag:
+                - id: "6"
+                  name: Dogs
+          schema:
+            $ref: '#/definitions/Pet'
+      summary: Use the PUT method of this API specification to update a pet
+produces:
+- application/json
+schemes:
+- http
+swagger: "2.0"

@@ -2,14 +2,14 @@
   "swagger": "2.0",
   "info": {
     "version": "1.1",
-    "title": "TIBCO Cloud Integration PetStore Sample",
+    "title": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãä",
     "description": "To get you started with the API Modeling and Mock capabilities of TIBCO Cloud Integration we've created a sample API Specification for you. This sample shows an API Specification for a PetStore API that can GET (retrieve), POST (create), PUT (create/update), PATCH (update) and DELETE pets in the store. To make things easier we've only created a small specification with a single resource '/pet/{petId}'",
     "contact": {
       "name": "TIBCO Cloud Integration Team",
       "url": "https://integration.cloud.tibco.com/docs/index.html",
       "email": "tci@tibco.com"
     },
-    "x-lastModified": "Jun 07, 2017 03:33AM PST"
+    "x-lastModified": "Jun 07, 2017 03:36AM PST"
   },
   "schemes": [
     "http"
@@ -52,7 +52,7 @@
         ],
         "responses": {
           "200": {
-            "description": "a Pet to be returned",
+            "description": "ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿƒΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρςστυφχψωϑϒϖ",
             "schema": {
               "$ref": "#/definitions/Pet"
             },

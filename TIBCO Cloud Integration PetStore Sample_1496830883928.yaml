@@ -67,8 +67,9 @@ info:
     shows an API Specification for a PetStore API that can GET (retrieve), POST (create),
     PUT (create/update), PATCH (update) and DELETE pets in the store. To make things
     easier we've only created a small specification with a single resource '/pet/{petId}'
-  title: TIBCO Cloud Integration PetStore Sample
+  title: ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíî
   version: "1.1"
+  x-lastModified: Jun 07, 2017 03:39AM PST
 paths:
   /pet/{petId}:
     delete:
@@ -179,30 +180,25 @@ paths:
     post:
       consumes:
       - application/json
-      description: The POST method in an API Specification is used to create a new
-        resource. In this case it would create a new pet with the petId you specify
-        when calling the API and the information you add to the body (e.g. the name
-        or the status). When you create a [Mock application](https://integration.cloud.tibco.com/docs/mockapp/creatingMockApp/index.html#APIModeler)
-        from this specification it will also show you a sample request and a sample
-        response.
+      description: ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿƒΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρςστυφχψωϑϒϖ
       operationId: postpet
       parameters:
-      - description: The information of the pet you want to create in the store
-        in: body
-        name: Pet Information
-        required: true
-        schema:
-          $ref: '#/definitions/Pet'
       - description: The ID of the pet you want to create
+        format: ""
         in: path
         name: petId
         required: true
         type: string
+      - description: The information of the pet you want to create in the store
+        in: body
+        name: Pet Information
+        schema:
+          $ref: '#/definitions/Pet'
       produces:
       - application/json
       responses:
         "200":
-          description: a Pet to be returned
+          description: ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿƒΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩαβγδεζηθικλμνξοπρςστυφχψωϑϒϖ
           examples:
             application/json:
               category:

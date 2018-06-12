@@ -8,7 +8,8 @@
       "name": "TIBCO Cloud Integration Team",
       "url": "https://integration.cloud.tibco.com/docs/index.html",
       "email": "tci@tibco.com"
-    }
+    },
+    "x-lastModified": "Jun 06, 2018 03:45AM PST"
   },
   "schemes": [
     "http"
@@ -25,28 +26,18 @@
         "summary": "Use the POST method of this API specification to create a new pet",
         "description": "The POST method in an API Specification is used to create a new resource. In this case it would create a new pet with the petId you specify when calling the API and the information you add to the body (e.g. the name or the status). When you create a [Mock application](https://integration.cloud.tibco.com/docs/mockapp/creatingMockApp/index.html#APIModeler) from this specification it will also show you a sample request and a sample response.",
         "operationId": "postpet",
-        "consumes": [
-          "application/json"
-        ],
+        "consumes": [],
         "produces": [
           "application/json"
         ],
         "parameters": [
           {
-            "name": "Pet Information",
-            "in": "body",
-            "description": "The information of the pet you want to create in the store",
-            "schema": {
-              "$ref": "#/definitions/Pet"
-            },
-            "required": true
-          },
-          {
             "name": "petId",
             "in": "path",
             "description": "The ID of the pet you want to create",
+            "required": true,
             "type": "string",
-            "required": true
+            "format": ""
           }
         ],
         "responses": {
@@ -361,6 +352,10 @@
           }
         }
       }
+    },
+    "GiveNewSchemaNameHere": {
+      "type": "object",
+      "properties": {}
     }
   }
 }
